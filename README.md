@@ -1,6 +1,6 @@
-# Shopify Integration FastAPI Backend
+# Multi-store product and order sync shopify integration backend
 
-This repository contains the FastAPI backend for a Shopify integration system. It includes API endpoints for managing product and order information synced with various Shopify stores, and is designed to work in conjunction with a React frontend and a MySQL database.
+This repository contains the FastAPI backend for a multi-store product and order sync integration system. It includes API endpoints for managing product and order information synced with various Shopify stores, and is designed to work in conjunction with a React frontend and a MySQL database.
 
 ## Features
 
@@ -11,9 +11,35 @@ This repository contains the FastAPI backend for a Shopify integration system. I
 
 ## Requirements
 
-- Python 3.8 or later
+- Python 3.10 or later
 - MySQL Server
 - Docker (optional)
+
+## Project Structure
+
+tmpm_shopify_backend/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py             # FastAPI app entry point
+│   ├── dependencies.py     # Dependency-related code
+│   ├── models.py           # Database models
+│   ├── schemas.py          # Pydantic schemas for request/response validation
+│   ├── crud.py             # CRUD operations for models
+│   └── routers/
+│       ├── __init__.py
+│       ├── products.py     # Router for product-related operations
+│       └── orders.py       # Router for order-related operations
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_products.py    # Unit tests for product operations
+│   └── test_orders.py      # Unit tests for order operations
+│
+├── .env                    # Environment variables
+├── Dockerfile
+├── requirements.txt
+└── README.md
 
 ## Setup
 
@@ -29,7 +55,6 @@ cd tmpm-backend
 ```
 pip install -r requirements.txt
 ```
-
 
 ### Database Setup
 
@@ -57,7 +82,6 @@ uvicorn app.main:app --reload
 ```
 pytest
 ```
-
 
 ## API Documentation
 
