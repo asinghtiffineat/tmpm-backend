@@ -22,5 +22,13 @@ class Order(Base):
     order_date = Column(DateTime)
     amount = Column(DECIMAL(10, 2))  # Total amount of the order
     discount = Column(DECIMAL(10, 2))  # Discount amount, if any
-
     product = relationship("Product", back_populates="orders")
+
+
+class ShopifyStore(Base):
+    __tablename__ = "shopify_stores"
+
+    id = Column(Integer, primary_key=True, index=True)
+    shop = Column(String, unique=True, index=True)
+    access_token = Column(String)
+    # You can add more fields as needed, like email, shop owner, etc.
