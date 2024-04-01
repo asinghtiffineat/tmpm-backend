@@ -2,3 +2,4 @@ fastapi[all]
 sqlalchemy
 pydantic
 pytest
+python-dotenv
